@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - Minimal Site - L.C.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-title">Minimal Site - L.C.</h1>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/about.html" class="nav-link">Chi Siamo</a></li>
+                <li><a href="/contact.html" class="nav-link active">Contatti</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title animate-slide-up">Contatti</h1>
+                <p class="page-subtitle animate-slide-up delay-1">
+                    Informazioni tecniche e risorse per approfondire
+                </p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info animate-fade-in">
+                        <h2>Informazioni del Server</h2>
+                        <div class="info-cards">
+                            <div class="info-card">
+                                <div class="info-icon">🌐</div>
+                                <h3>Indirizzo Server</h3>
+                                <p>localhost:8080</p>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-icon">⚡</div>
+                                <h3>Protocollo</h3>
+                                <p>HTTP/1.1</p>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-icon">📁</div>
+                                <h3>Directory Web</h3>
+                                <p>./www/</p>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-icon">🔧</div>
+                                <h3>Linguaggio</h3>
+                                <p>Python 3.x</p>
+                            </div>
+                        </div>
+
+                        <h3>Funzionalità Supportate</h3>
+                        <ul class="features-list">
+                            <li>✅ Richieste GET HTTP</li>
+                            <li>✅ Serving file statici</li>
+                            <li>✅ Gestione MIME types</li>
+                            <li>✅ Risposta 404 personalizzata</li>
+                            <li>✅ Logging delle richieste</li>
+                            <li>✅ Threading per richieste multiple</li>
+                            <li>✅ Sicurezza path traversal</li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-form animate-fade-in delay-1">
+                        <h2>Simulazione Form di Contatto</h2>
+                        <p class="form-note">
+                            <em>Nota: Form fatto solo a scopo illustrativo. I dati non sono realmente processati.</em>
+                        </p>
+                        
+                        <form class="demo-form" onsubmit="handleFormSubmit(event)">
+                            <div class="form-group">
+                                <label for="name">Nome</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Oggetto</label>
+                                <select id="subject" name="subject">
+                                    <option value="">Seleziona un argomento</option>
+                                    <option value="server">Domande sul server</option>
+                                    <option value="code">Richieste codice</option>
+                                    <option value="bug">Segnalazione bug</option>
+                                    <option value="other">Altro</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Messaggio</label>
+                                <textarea id="message" name="message" rows="6" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Invia Messaggio</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="resources-section">
+            <div class="container">
+                <h2 class="section-title">Risorse Utili</h2>
+                <div class="resources-grid">
+                    <div class="resource-card animate-bounce-in">
+                        <h3>📚 Documentazione Python</h3>
+                        <p>Socket Programming e HTTP</p>
+                        <a href="#" class="resource-link">docs.python.org</a>
+                    </div>
+                    <div class="resource-card animate-bounce-in delay-1">
+                        <h3>🌐 RFC HTTP/1.1</h3>
+                        <p>Specifica ufficiale del protocollo</p>
+                        <a href="#" class="resource-link">tools.ietf.org</a>
+                    </div>
+                    <div class="resource-card animate-bounce-in delay-2">
+                        <h3>🔧 Codice Sorgente</h3>
+                        <p>Repository del progetto</p>
+                        <a href="#" class="resource-link">github.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Progetto per il corso di Programmazione di Reti.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            const confirmDiv = document.createElement('div');
+            confirmDiv.className = 'form-confirmation';
+            confirmDiv.innerHTML = `
+                <h3>Form Ricevuto!</h3>
+                <p>Grazie per il feedback!</p>
+                <ul>
+                    <li><strong>Nome:</strong> ${formData.get('name')}</li>
+                    <li><strong>Email:</strong> ${formData.get('email')}</li>
+                    <li><strong>Oggetto:</strong> ${formData.get('subject') || 'Non specificato'}</li>
+                </ul>
+            `;
+            
+            form.parentNode.replaceChild(confirmDiv, form);
+        }
+    </script>
+</body>
+</html>

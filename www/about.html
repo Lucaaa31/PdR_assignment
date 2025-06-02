@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Siamo - Minimal Site - L.C.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-title">Minimal Site - L.C.</h1>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/about.html" class="nav-link active">Chi Siamo</a></li>
+                <li><a href="/contact.html" class="nav-link">Contatti</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title animate-slide-up">Chi Siamo</h1>
+                <p class="page-subtitle animate-slide-up delay-1">
+                    La storia dietro questo progetto educativo
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="content-text animate-fade-in">
+                        <h2>Scopo del progetto</h2>
+                        <p>
+                            Questo web server è stato creato come progetto educativo per dimostrare 
+                            come sia possibile realizzare un server HTTP funzionante utilizzando 
+                            esclusivamente le librerie standard di Python.
+                        </p>
+                        <p>
+                            L'obiettivo è quello di comprendere i meccanismi fondamentali che stanno 
+                            alla base del protocollo HTTP e della comunicazione client-server, 
+                            senza affidarsi a framework complessi.
+                        </p>
+                        
+                        <h3>Tecnologie Utilizzate</h3>
+                        <ul class="tech-list">
+                            <li><strong>Python Socket</strong> - Per la comunicazione di rete</li>
+                            <li><strong>Threading</strong> - Per gestire richieste multiple</li>
+                            <li><strong>HTML5 & CSS3</strong> - Per l'interfaccia utente</li>
+                            <li><strong>JavaScript</strong> - Per le animazioni interattive</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-visual animate-fade-in delay-1">
+                        <div class="code-preview">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <div class="code-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="code-content">
+                                <pre><code># Server HTTP minimale
+import socket
+import threading
+
+class HTTPServer:
+    def __init__(self, port=8080):
+        self.port = port
+        
+    def start(self):
+        sock = socket.socket()
+        sock.bind(('localhost', self.port))
+        sock.listen(5)
+        
+        while True:
+            client, addr = sock.accept()
+            self.handle_request(client)
+            </code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="timeline-section">
+            <div class="container">
+                <h2 class="section-title">Fasi di Sviluppo</h2>
+                <div class="timeline">
+                    <div class="timeline-item animate-slide-in-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Fase 1: Implementazione Base</h3>
+                            <p>Creazione del server socket e gestione delle richieste HTTP GET di base</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-slide-in-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Fase 2: Gestione File</h3>
+                            <p>Implementazione del serving di file statici e gestione dei MIME types</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-slide-in-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Fase 3: Miglioramenti</h3>
+                            <p>Aggiunta di logging, gestione errori e sicurezza di base</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-slide-in-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Fase 4: Frontend</h3>
+                            <p>Creazione di un'interfaccia moderna e responsive con animazioni</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Progetto per il corso di Programmazione di Reti.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Minimal Site - L.C.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-title">Minimal Site - L.C.</h1>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link active">Home</a></li>
+                <li><a href="/about.html" class="nav-link">Chi Siamo</a></li>
+                <li><a href="/contact.html" class="nav-link">Contatti</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title animate-slide-up">
+                    Benvenuto nel nostro
+                    <span class="gradient-text">Web Server Python</span>
+                </h1>
+                <p class="hero-subtitle animate-slide-up delay-1">
+                    Un server HTTP minimale realizzato con socket Python per il progetto di Programmazione di Reti
+                </p>
+                <div class="hero-buttons animate-slide-up delay-2">
+                    <a href="/about.html" class="btn btn-primary">Scopri di più</a>
+                    <a href="/contact.html" class="btn btn-secondary">Contattaci</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Caratteristiche del Server</h2>
+                <div class="features-grid">
+                    <div class="feature-card animate-fade-in">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Veloce e Leggero</h3>
+                        <p>Implementazione minimale con socket Python nativi per massime prestazioni</p>
+                    </div>
+                    <div class="feature-card animate-fade-in delay-1">
+                        <div class="feature-icon">🔧</div>
+                        <h3>Personalizzabile</h3>
+                        <p>Codice pulito e modulare, facile da estendere e modificare</p>
+                    </div>
+                    <div class="feature-card animate-fade-in delay-2">
+                        <div class="feature-icon">📱</div>
+                        <h3>Responsive</h3>
+                        <p>Design che si adatta perfettamente a tutti i dispositivi</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="100">0</span>
+                        <span class="stat-label">Linee di Codice</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="8080">0</span>
+                        <span class="stat-label">Porta Server</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="3">0</span>
+                        <span class="stat-label">Pagine HTML</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Progetto per il corso di Programmazione di Reti.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 20);
+            });
+        });
+    </script>
+</body>
+</html>
